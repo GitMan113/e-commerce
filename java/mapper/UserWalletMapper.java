@@ -1,6 +1,6 @@
 interface UserWalletMapper{
     /**
-    	查询用户钱包余额
+    	查询用户的钱包余额
     */
     UserWalletVO selectUserBalanceByUserId(Long userId);
     
