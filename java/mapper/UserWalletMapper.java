@@ -5,7 +5,7 @@ interface UserWalletMapper{
     UserWalletVO selectUserBalanceByUserId(Long userId);
     
     /**
-    	用户余额更新
+    	用户余额的更新
     */
     void updateUserBalanceByUserId(UserWalletVO userWallet);
 }
