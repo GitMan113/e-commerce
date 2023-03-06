@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xx.xx.xx.xx.UserSpendingRecordMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="xx.xx.xx.xx.xx.UserSpendingRecordVO">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="uer_bill" property="uerBill" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
+    </resultMap>
+    <sql id="BaseQueryFields">
+        <if test="true">
+        	id,
+            user_id,
+            user_bill,
+            gmt_create,
+            gmt_modified
+        </if>
+    </sql>
+    <!-- 查询用户钱包金额变动明细的接口 -->
+    <select id="selectuserSpendingRecordByUserId" resultMap="BaseResultMap">
+    	select 
+        	<include refid="BaseQueryFields"></include>
+        from
+        	user_spending_record
+        where
+        	user_id=#{userId}
+        order by gmt_create desc
+    </select>
+</mapper>
